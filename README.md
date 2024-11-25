@@ -38,5 +38,5 @@ To run this project locally, follow these steps:
 **Live Server** : A lightweight development server for quick project previews.
 
 ## Author
-Created by [Safaa-Fahmawi].
+Created by [SafaFahmawi].
 
