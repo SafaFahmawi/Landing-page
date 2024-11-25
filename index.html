@@ -1,0 +1,369 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manipulating the DOM</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- Load Styles -->
+  <link href="./css/style.css" rel="stylesheet">
+
+  <link rel="icon" href="./favicons/logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <div class="layout">
+    <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="#"><img src="./images/logo.png" alt="SmartHome Logo" /></a>
+      </div>
+
+      <div class="navbar-right">
+        <form class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
+        <div class="auth-buttons">
+          <a href="#" class="login-btn">Login</a>
+          <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dynamic header -->
+    <header id="header" class="page__header">
+      <nav class="navbar__menu">
+        <!-- Navigation starts as empty UL that will be populated with JS -->
+        <ul id="navbar__list"></ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- header for main section   -->
+
+      <header class="main__hero">
+        <figure>
+          <img src="./images/2.jpg" class="hero__img" alt="HomeSmart picture" width="50%" height="70%">
+        </figure>
+
+        <h1>Landing Page </h1>
+        <h3>SmartHome Device</h3>
+        <p class="hero__par">
+          <span>Introducing SmartHome Hub: Your Ultimate Home Automation System <br> <br></span>
+          A Smarter Home Starts Here
+          Transform your everyday living with the SmartHome Hub, the all-in-one solution designed to bring
+          convenience, security, and energy efficiency to your home. Whether you’re home or away, you can easily
+          manage and monitor your environment at the touch of a button—or with your voice.
+        </p>
+        <button class="hero__btn">Subscribe
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+
+      <!-- start section 1 -->
+
+      <section id="section1" data-nav="Section 1" class="active">
+        <div class="landing__container">
+          <h2>Key Features</h2>
+          <div class="collapsible-content">
+            <h4>Centralized Control</h4>
+            <p class="list__content">SmartHome Hub allows you to control all your devices from one intuitive
+              platform. Whether it’s
+              adjusting the thermostat, switching off lights, or activating your home security system, everything is
+              within reach.
+            </p>
+
+            <h4>Voice Control Integration</h4>
+            <p class="list__content">Works seamlessly with Amazon Alexa, Google Assistant, and Apple HomeKit,
+              giving you the power to
+              control your home with simple voice commands. Just say "Hey Siri" or "Alexa, set the lights to 50%"
+              and you're good to go.
+            </p>
+
+            <h4>Personalized Automation</h4>
+            <p class="list__content">Set personalized routines and schedules. Want your home to feel cozy when you
+              arrive? Program your
+              thermostat and lights to automatically adjust when you get home.
+            </p>
+
+            <h4>Smart Security</h4>
+            <p class="list__content">Keep an eye on your home from anywhere with SmartHome Hub’s integrated
+              security system. Receive
+              real-time alerts if anything unusual happens, monitor security cameras remotely, and arm/disarm your
+              security system with a tap.
+            </p>
+
+            <h4>Energy Efficiency</h4>
+            <p class="list__content">Save money and reduce your carbon footprint with automated energy-saving
+              features. Set your lights
+              and thermostat to adjust based on time or room occupancy. It’s easy to reduce energy waste and save on
+              utility bills.
+            </p>
+
+            <h4>Easy Setup</h4>
+            <p class="list__content">No need to be a tech expert! The SmartHome Hub is designed for simplicity.
+              Plug in the device,
+              follow the easy on-screen instructions, and within minutes, your home is ready for the future.
+            </p>
+          </div>
+
+          <button class="collapse-button">Read More</button>
+        </div>
+      </section>
+
+      <!-- start section 2 -->
+
+      <section id="section2" data-nav="Section 2">
+        <div class="landing__container">
+          <h2>Why Choose SmartHome Hub?</h2>
+          <div class="collapsible-content">
+            <h4>Universal Compatibility</h4>
+            <p class="list__content">
+              SmartHome Hub is compatible with over 100,000 smart devices, including smart lights, locks, speakers,
+              cameras, and thermostats from leading brands like Philips, Nest, Ring, and more. It’s the perfect
+              solution for creating a fully integrated home ecosystem, no matter what devices you already own.
+            </p>
+
+            <h4>Secure & Reliable</h4>
+            <p class="list__content">
+              SmartHome Hub uses encrypted communication and advanced security protocols to keep your home safe from
+              cyber threats. Plus, with real-time notifications, you’re always in the know if anything happens in your
+              home.
+            </p>
+
+            <h4>Remote Access</h4>
+            <p class="list__content">
+              Whether you’re in the next room or halfway across the world, you can control your home from anywhere
+              using our mobile app. Lock doors, adjust the temperature, or check cameras with the tap of a finger.
+            </p>
+
+            <h4>Multi-User Support</h4>
+            <p class="list__content">
+              Share the control of your home with family or roommates by adding additional users to your SmartHome
+              Hub. Everyone can have their own account with customized settings, ensuring personalized experiences for
+              everyone.
+            </p>
+          </div>
+
+          <button class="collapse-button">Read More</button>
+        </div>
+      </section>
+
+      <!-- start section 3 -->
+
+      <section id="section3" data-nav="Section 3">
+        <div class="landing__container">
+          <h2>Real Customer Testimonials</h2>
+          <p class="collapsible-content">
+            <em>
+              "I never thought I'd have the convenience of controlling my home from anywhere. The SmartHome Hub made
+              everything so easy! I love how I can check security cameras and turn off lights when I’m on vacation. It's
+              a game-changer!" – Sophia W.
+              <br> <br>
+              "With all the smart devices in my home, I was struggling to manage them. The SmartHome Hub brought
+              everything together seamlessly. The app is incredibly easy to use, and I love the voice control feature!"
+              – Mark L.
+              <br> <br>
+              "As a new parent, security is my top priority. The SmartHome Hub gave me peace of mind with real-time
+              alerts and cameras. I can check on the baby or lock the doors even if I'm in another room!" – Emily R.
+            </em>
+          </p>
+
+          <button class="collapse-button">Read More</button>
+        </div>
+      </section>
+
+      <!-- start section 4 -->
+
+      <section id="section4" data-nav="Section 4">
+        <div class="landing__container">
+          <h2>How It Works</h2>
+          <div class="collapsible-content">
+            <h4>Set Up the Hub</h4>
+            <p class="list__content">
+              Plug the SmartHome Hub into any power outlet and connect it to your Wi-Fi network. In just a few
+              minutes, your home is ready for control.
+            </p>
+
+            <h4>Add Devices</h4>
+            <p class="list__content">
+              Simply add your smart devices to the hub, whether they are lights, thermostats, cameras, or locks. The
+              app guides you through the setup for each device.
+            </p>
+
+            <h4>Personalize Your Experience</h4>
+            <p class="list__content">
+              Create custom routines to suit your lifestyle. Set your lights to dim at night, schedule your thermostat
+              to lower when you leave, or create a “Good Morning” routine to prepare your home for the day ahead.
+            </p>
+
+            <h4>Control Everything From Your Phone or Voice</h4>
+            <p class="list__content">
+              Use the mobile app or voice control to manage your home from anywhere, at any time. Get notifications
+              for anything that needs your attention, like open windows or a security breach.
+            </p>
+          </div>
+
+          <button class="collapse-button">Read More</button>
+        </div>
+      </section>
+
+      <!-- start section 5 -->
+
+      <section id="section5" data-nav="Section 5">
+        <h2>Pricing & Plans</h2>
+        <p class="pricing-description">
+          We offer flexible pricing to fit any budget. The SmartHome Hub comes with a one-time purchase fee,
+          and you can choose from our premium subscription options to access enhanced features such as cloud
+          storage for your cameras and advanced security protocols.
+        </p>
+
+        <div class="plans-container">
+          <!-- Basic Plan -->
+          <div class="plan-card basic-plan">
+            <div class="plan-header">
+              <h3>Basic Plan</h3>
+              <p>$99 <span>One-time</span></p>
+            </div>
+            <ul>
+              <li>One-time purchase of the SmartHome Hub</li>
+              <li>Connect up to 10 devices</li>
+              <li>Standard security features</li>
+              <li>Mobile app control</li>
+            </ul>
+            <button class="btn">Get Started</button>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="plan-card premium-plan">
+            <div class="plan-header">
+              <h3>Premium Plan</h3>
+              <p>$199 <span>One-time</span> + Subscription</p>
+            </div>
+            <ul>
+              <li>SmartHome Hub + Cloud storage</li>
+              <li>Connect up to 50 devices</li>
+              <li>Enhanced security & alerts</li>
+              <li>24/7 customer support</li>
+            </ul>
+            <button class="btn">Get Premium</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- start footer -->
+
+    <footer id="footer" class="page__footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>SmartHome</h2>
+          <p>SmartHome Hub makes your life easier by automating <br> everyday tasks and connecting your devices
+            seamlessly.</p>
+        </div>
+        <div class="footer-links">
+          <h4>INFORMATION</h4>
+          <ul>
+            <li><a href="">About us</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>LEGAL</h4>
+          <ul>
+            <li><a href="">Terms of use</a></li>
+            <li><a href="">License agreement</a></li>
+            <li><a href="">Privacy policy</a></li>
+            <li><a href="">Cookies policy</a></li>
+            <li><a href="">Cookies Settings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-social">
+          <div class="footer-contact">
+            <h4>CONTACT</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 456 Innovation Drive, Silicon Valley, USA</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:support@smarthome.com">support@smarthome.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+11234567890">+1 123-456-7890</a></p>
+          </div>
+
+          <div class="footer-social">
+            <h4>SOCIAL MEDIA</h4>
+            <ul class="social-icons">
+
+              <a href="" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+
+              <a href="" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+
+              <a href="" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a href="" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a href="" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>SUBSCRIBE</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email Address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <h4>HAVENIQ</h4>
+        <p>Copyright &copy;&nbsp;<span id="year"></span> &nbsp;HavenIQ.&nbsp; All rights reserved. </p>
+
+      </div>
+    </footer>
+
+    <!-- scroll top button -->
+
+    <button id="scrollToTop">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
